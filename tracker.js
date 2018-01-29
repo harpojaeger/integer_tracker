@@ -4,6 +4,9 @@ class IntegerTracker {
     this.freqs = {}
     this.mode = null
     this.maxCount = null
+    this.max = null
+    this.min = null
+    this.mean = null
   }
 
   track(n){
@@ -17,15 +20,17 @@ class IntegerTracker {
         this.maxCount++
         this.mode = n
       }
+      if(n > this.max || this.max === null) this.max = n
+      if(n < this.min || this.min === null) this.min = n
     } else {
       throw 'Must provide an integer.'
     }
   }
   get_max(){
-    return Math.max(...this.ints)
+    return this.max
   }
   get_min(){
-    return Math.min(...this.ints)
+    return this.min
   }
   get_mean(){
     return this.mean
