@@ -20,6 +20,7 @@ class IntegerTracker {
         this.maxCount++
         this.mode = n
       }
+      // Check max & min
       if(n > this.max || this.max === null) this.max = n
       if(n < this.min || this.min === null) this.min = n
     } else {
