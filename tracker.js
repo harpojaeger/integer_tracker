@@ -12,7 +12,8 @@ class IntegerTracker {
   track(n){
     if(Math.floor(n) === n) {
       this.ints.push(n)
-      this.mean = this.ints.reduce((coll, val) => coll + val)/this.ints.length
+      // Calculate the mean
+      this.mean = this.mean === null ? n : (this.mean*(this.ints.length-1)+n)/this.ints.length
       // Increment the counter object
       this.freqs[n] = this.freqs[n]? this.freqs[n] + 1 : 1
       // Check if this integer is the new mode
